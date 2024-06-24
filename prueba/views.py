@@ -66,7 +66,7 @@ def crearN(request):
         nueva_notificacion.save()
         
         if 'enviar_email' in request.POST:
-            destinatario = 'marlonher0181@gmail.com'
+            destinatario = 'ptoribio@consortiumlegal.com'
             asunto = 'Nueva notificación creada'
             mensaje = f'Se ha creado una nueva notificación:\n\nTítulo: {titulo}\nEntidad: {entidad}\nNúmero de expediente: {numero_exp}'
 
