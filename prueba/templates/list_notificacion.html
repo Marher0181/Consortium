@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificacion</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+</head>
+<body>
+    <h1><span class="yellow">Notificaciones</span></h1>
+
+    <div class="contenedor">
+        <button style="margin-right: 15px;" type="button" class="yellow-btn" onclick="window.location.href='http://127.0.0.1:8000/add'">Nueva notificación</button>
+ 
+        <button type="button" class="yellow-btn" onclick="window.location.href='http://127.0.0.1:8000/addC'">Nuevo colaborador</button>
+    </div>
+
+    <div class="contenedor">
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+    
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+    
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">última &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+        <table class="container">
+            <thead>
+                <tr>
+                    <th><h1>Dirigido a</h1></th>
+                    <th><h1>Entidad</h1></span>
+                    <th><h1>Expediente</h1></th>
+                    <th><h1>Fecha y hora recibido</h1></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for notificacion in page_obj %}
+                <tr>
+                    <td>{{ notificacion.dirigido_a}}</td>
+                    <td>{{ notificacion.entidad }}</td>
+                    <td>{{ notificacion.numero_exp }}</td>
+                    <td>{{ notificacion.fecha_recepcion }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+            
+        </table>
+            
+                
+
+</body>
+</html>

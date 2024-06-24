@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Agregar Notificación</h1>
+    <form action="entregado/proceso/" method="PUT">
+      {% csrf_token %}
+      
+      <input type="text" name="titulo" placeholder="Título">
+      <input type="text" name="entidad" placeholder="Entidad que envía">
+      <input type="text" name="numero_exp" placeholder="Número de expediente">
+      
+      <select name="dirigido_a">
+          <option value="Pedro">Pedro Perez</option>
+          <option value="Juan">Juan Carlos</option>
+      </select>
+      
+      <select name="recepcionista">
+          <option value="Amanda">Amanda González</option>
+          <option value="Wanda">Wanda Pastor</option>
+      </select>
+      
+      <label>
+        <input type="checkbox" name="enviar_email" id="enviar_email"> ¿Ya fue entregado internamente?
+      </label>
+
+      <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>
