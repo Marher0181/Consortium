@@ -24,10 +24,15 @@ def listarR(request):
     return render(request, 'list_recepcionista.html')
 
 def mostraA(request):
+    listarC(request)
     return render(request, 'add_notificacion.html')
 
 def mostrarC(request):
     return render(request, 'add_colaborador.html')
+
+def listarC(request):
+    colaborador = Colaborador.objects.all()
+    return render(request, 'list_colaborador.html', {"Colaborador": colaborador})
 
 def crearC(request):
     if request.method == 'POST':
